@@ -7,7 +7,11 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-const bot = new TeleBot(process.env.TELEGRAM_BOT_API)
+const bot = new TeleBot({
+  token: process.env.BOT_TELEGRAM_API_KEY
+});
+
+const cricApiKey = process.env.CRICAPI_KEY;
 
 //your routes here
 app.get('/', function (req, res) {
